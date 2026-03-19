@@ -48,3 +48,26 @@ This project is now fully based on Python (Flask) and MySQL.
 - `http://127.0.0.1:5000/api`
 
 The frontend is already configured for this endpoint.
+
+## Deploy On Vercel
+
+This repository is configured for Vercel serverless deployment.
+
+### Added for deployment
+- `api/index.py` (Vercel Python entrypoint)
+- `vercel.json` (rewrites `/api` to Python function)
+
+### Steps
+1. Push this folder to GitHub.
+2. Import the repo in Vercel.
+3. In Vercel Project Settings -> Environment Variables, add:
+   - `DB_HOST`
+   - `DB_PORT`
+   - `DB_NAME`
+   - `DB_USER`
+   - `DB_PASS`
+4. Redeploy.
+
+### Important
+- Use a publicly reachable MySQL database (localhost MySQL from your laptop will not work on Vercel).
+- Frontend API URL automatically uses `/api` in production and local URL on localhost.
